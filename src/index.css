@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --pri:#37353E;
+  --sec:#44444E;
+  --tri:#715A5A;
+  --tri1:#D3DAD9;
+}
+html,body,#root{
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--pri);
+}
+
+body{
+  color: var(--tri1);
+  font-family: monospace;
+}
+
+h1,h2{
+  text-shadow: 1px 0px 1px #fff;
+  font-size: 4rem;
+  text-align: center;
+}
+h1{
+  color: var(--tri);
+  text-shadow: 6px 6px 2px rgb(6, 3, 3);
+}
+h2{
+  font-size: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+span{
+  color: var(--tri);
+  text-shadow: 0px 1px 2px brown;
+}
+
+
+div.container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+  min-height: 90vh;
+  padding: 2rem;
+}
+div.container .left{
+ flex: 0 0 40%; /* fixed 40% width */
+  min-width: 300px;
+  height: 600px; 
+  background-color: var(--sec);
+}
+
+div.container .left .inputDiv form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-around;
+}
+div.container .left .inputDiv form input{
+  background: none;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  opacity: 0.8;
+  color: var(--tri1);
+  border-bottom: 1px solid var(--tri1);
+}
+div.container .left .inputDiv form button{
+  padding: 10px 15px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: 0px 1px 2px #111;
+  color: var(--tri1);
+}
+div.container .left .inputDiv form button:active{
+  scale: 1.1;
+}
+div.container .right{
+  flex: 1; /* take remaining space */
+  min-width: 300px; /* optional */
+  height: 600px; 
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: var(--sec);
+
+}
+div.container .right ol{
+  margin-top: 5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+div.container .right ol li{
+  font-size: 20px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: var(--tri);
+  padding: 10px 20px;
+}
+div.container .right ol li p{
+  opacity: 0.9;
+  text-transform: capitalize;
+}
+div.container .right ol li small{
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: #111;
+  background-color: red;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+}
+
+div.container .right ol li small:active{
+  scale: 0.85;
+}
+
+
+
+@media (max-width:780px){
+  div.container{
+    flex-direction: column;
+  }
+ div.container .left, div.container .right{
+  width: 100%;
+  padding-bottom: 1rem;
+}
+div.container .right{
+  overflow: hidden;
+}
+}
