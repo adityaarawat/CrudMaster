@@ -1,64 +1,27 @@
+import { useEffect, useState } from "react";
+import { nanoid } from 'nanoid';
+import Create from "./components/Create";
+import Read from "./components/Read";
+
 const App=()=>{
+
+   const [task, setTask] = useState(() => {
+    // Get tasks from localStorage if available
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  // Save tasks to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(task));
+  }, [task]);
+
+
   return <>
     <h1>Todo Application</h1>
     <div className="container">
-       <div className="left">
-      <h2>Set <span>Reminders</span> for tasks</h2>
-      <div className="inputDiv">
-        <form>
-        <input type="text" placeholder="Enter Your Task"/>
-        <button>Create Todo</button>
-        </form>
-      </div>
-    </div>
-    <div className="right">
-      <h2>
-        <span>Pending</span> Todos
-        <ol>
-         <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-          <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-         
-         <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-          <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-          <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-          <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-          <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-          <li>
-            <p>kamm kar Lo bhai</p>
-            <input type="checkbox" />
-            <small>delete</small>
-          </li>
-        </ol>
-      </h2>
-    </div>
+    <Create task={task} setTask={setTask}/>
+    <Read task={task} setTask={setTask}/>
     </div>
    
   </>

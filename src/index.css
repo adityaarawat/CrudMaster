@@ -11,6 +11,7 @@
 }
 html,body,#root{
   width: 100%;
+  overflow: hidden;
   min-height: 100vh;
   background-color: var(--pri);
 }
@@ -88,13 +89,26 @@ div.container .right{
   flex: 1; /* take remaining space */
   min-width: 300px; /* optional */
   height: 600px; 
-  overflow: hidden;
   overflow-y: scroll;
   background-color: var(--sec);
 
 }
+/* scroll bar styling styling started */
+div.container .right::-webkit-scrollbar{
+width:10px;
+}
+div.container .right::-webkit-scrollbar-track{
+    background: var(--tri1);  /* track color */
+  border-radius: 10px;
+}
+div.container .right::-webkit-scrollbar-thumb {
+  background: var(--tri);       /* handle color */
+  border-radius: 10px;
+}
+/* scroll bar styling styling ended */
 div.container .right ol{
   margin-top: 5rem;
+  overflow: hidden;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -106,6 +120,7 @@ div.container .right ol li{
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: flex-start;
   background-color: var(--tri);
   padding: 10px 20px;
 }
@@ -126,8 +141,6 @@ div.container .right ol li small{
 div.container .right ol li small:active{
   scale: 0.85;
 }
-
-
 
 @media (max-width:780px){
   div.container{
